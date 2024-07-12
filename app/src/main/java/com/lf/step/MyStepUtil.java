@@ -7,7 +7,7 @@ public class MyStepUtil {
 
     /*
         1.小米：接入小米计步器接口，小米通过ContentProvider读取步数信息，相对比较简单，
-        官方文档https://dev.mi.com/console/doc/detail?pId=2487
+        官方文档 https://dev.mi.com/console/doc/detail?pId=2487
 
         2.华为：需要申请Health Kit，并导入sdk，相对麻烦一些，
         官方文档：https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/steps-delta-scene-0000001050822049
