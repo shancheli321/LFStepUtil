@@ -29,4 +29,13 @@
         android:padding="10dp"
         android:text="步数" />
 
+    <TextView
+        android:id="@+id/tv_hw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="去华为步数" />
+
 </LinearLayout>

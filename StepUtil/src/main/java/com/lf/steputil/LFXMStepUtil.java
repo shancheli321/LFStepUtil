@@ -1,7 +1,5 @@
 package com.lf.steputil;
 
-import static com.lf.steputil.mi.XMStepConstants.projection;
-
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
@@ -11,10 +9,7 @@ import com.lf.steputil.mi.XMStepConstants;
 import com.lf.steputil.mi.XMStepEntity;
 
 import java.lang.reflect.Method;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.TimeZone;
@@ -22,7 +17,7 @@ import java.util.TimeZone;
 /**
  * @date: 2024/7/12
  */
-public class LFStepUtil {
+public class LFXMStepUtil {
 
     /*
         计步器Sensor 5分钟上报一次数据，后台Service将计步数据记录插入本地数据库，若没有数据上报, 则不插入；

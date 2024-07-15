@@ -20,6 +20,9 @@ buildscript {
             url 'https://jcenter.bintray.com/'
         }
 
+        // 配置HMS Core SDK的Maven仓地址。
+        maven {url 'https://developer.huawei.com/repo/'}
+
         // 引用本地仓库
         mavenLocal()
     }
@@ -35,12 +38,17 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
+
+        // 配置HMS Core SDK的Maven仓地址。
+        maven {url 'https://developer.huawei.com/repo/'}
+
         maven { url 'https://jitpack.io' }
 
         maven { url "https://gitee.com/ezy/repo/raw/cosmo/"}
 
         // banner
         maven { url "https://s01.oss.sonatype.org/content/groups/public" }
+
 
         // 阿里云镜像
 //        maven {
