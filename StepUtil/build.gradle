@@ -2,6 +2,8 @@ plugins {
     id 'com.android.library'
 }
 
+apply plugin: 'com.hihonor.mcs.asplugin'
+
 android {
     compileSdkVersion 31
     buildToolsVersion "30.0.3"
@@ -35,10 +37,13 @@ dependencies {
 //    implementation 'com.huawei.hms:health:6.14.0.300'
     implementation 'com.huawei.hms:health:6.11.0.303'
 
-
-
     // 自动引导
     implementation 'com.huawei.hms:hmscoreinstaller:6.6.0.300'
 
+
+    implementation 'com.hihonor.mcs:fitness-health:1.0.0.302'
+
+    // 授权
+    implementation 'com.hihonor.mcs:honorid-opensdk:8.0.1.351'
 
 }

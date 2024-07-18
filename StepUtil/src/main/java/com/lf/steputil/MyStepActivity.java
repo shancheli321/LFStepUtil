@@ -37,6 +37,36 @@ import java.util.concurrent.TimeUnit;
 
 public class MyStepActivity extends AppCompatActivity {
 
+    /*
+        //    implementation 'com.huawei.hms:health:6.14.0.300'
+        implementation 'com.huawei.hms:health:6.11.0.303'
+
+        // 自动引导
+        implementation 'com.huawei.hms:hmscoreinstaller:6.6.0.300'
+
+                // 配置HMS Core SDK的Maven仓地址。
+        maven {url 'https://developer.huawei.com/repo/'}
+
+
+        <meta-data
+            android:name="com.huawei.hms.client.appid"
+            android:value="111506425"/>
+
+
+
+        # 华为运动
+        -ignorewarnings
+        -keepattributes *Annotation*
+        -keepattributes Exceptions
+        -keepattributes InnerClasses
+        -keepattributes Signature
+        -keepattributes SourceFile,LineNumberTable
+        -keep class com.huawei.hianalytics.**{*;}
+        -keep class com.huawei.updatesdk.**{*;}
+        -keep class com.huawei.hms.**{*;}
+        #end
+     */
+
     // SettingController对象
     private SettingController mSettingController;
 

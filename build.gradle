@@ -23,6 +23,9 @@ buildscript {
         // 配置HMS Core SDK的Maven仓地址。
         maven {url 'https://developer.huawei.com/repo/'}
 
+        // 配置SDK的Maven仓地址。
+        maven {url 'https://developer.hihonor.com/repo'}
+
         // 引用本地仓库
         mavenLocal()
     }
@@ -30,6 +33,9 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:4.0.1"
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+
+        // 增加asplugin插件配置，推荐您使用最新版本。
+        classpath 'com.hihonor.mcs:asplugin:2.0.1.300'
     }
 }
 
@@ -41,6 +47,9 @@ allprojects {
 
         // 配置HMS Core SDK的Maven仓地址。
         maven {url 'https://developer.huawei.com/repo/'}
+
+        // 配置SDK的Maven仓地址。
+        maven {url 'https://developer.hihonor.com/repo'}
 
         maven { url 'https://jitpack.io' }
 

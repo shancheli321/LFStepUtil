@@ -13,6 +13,11 @@ public class MyStepUtil {
         官方文档：https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/steps-delta-scene-0000001050822049
         HMS Core   https://developer.huawei.com/consumer/cn/doc/HMSCore-References/autorecordercontroller-0000001050091345
 
+        3. 荣耀
+            https://developer.honor.com/cn/docs/11005/guides/dev-overview
+
+        4. vivo
+            https://developers.vivo.com/doc/d/bb71c60ceaf645b7af51a4365a5676bb
      */
 
 
