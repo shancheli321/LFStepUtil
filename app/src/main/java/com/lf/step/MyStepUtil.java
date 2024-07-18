@@ -18,6 +18,7 @@ public class MyStepUtil {
 
         4. vivo
             https://developers.vivo.com/doc/d/bb71c60ceaf645b7af51a4365a5676bb
+            https://developers.vivo.com/doc/d/6793feef9958725b9434a73897e84884
      */
 
 

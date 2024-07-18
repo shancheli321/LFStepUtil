@@ -46,4 +46,5 @@ dependencies {
     // 授权
     implementation 'com.hihonor.mcs:honorid-opensdk:8.0.1.351'
 
+    implementation files('../libs/vivohealthkit-1.0.0.23.aar')
 }
