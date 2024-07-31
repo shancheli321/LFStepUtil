@@ -12,6 +12,8 @@ public class MyStepUtil {
         2.华为：需要申请Health Kit，并导入sdk，相对麻烦一些，
         官方文档：https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/steps-delta-scene-0000001050822049
         HMS Core   https://developer.huawei.com/consumer/cn/doc/HMSCore-References/autorecordercontroller-0000001050091345
+        示例代码 https://developer.huawei.com/consumer/cn/doc/HMSCore-Examples/healthbasic-examplecode-0000001073728936
+
 
         3. 荣耀
             https://developer.honor.com/cn/docs/11005/guides/dev-overview

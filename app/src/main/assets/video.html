@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getUserMedia Example</title>
+</head>
+<body>
+    <h1>getUserMedia Example</h1>
+    <video id="videoElement" autoplay></video>
+    <p id="errorMessage" style="color: red;"></p>
+    <script>
+        async function startStream() {
+            const errorMessage = document.getElementById('errorMessage');
+            try {
+                const constraints = { video: true, audio: true };
+                console.log('Requesting media with constraints:', constraints);
+                const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                const videoElement = document.getElementById('videoElement');
+                videoElement.srcObject = stream;
+                console.log('Media stream received:', stream);
+            } catch (err) {
+                console.error('Error accessing media devices:', err);
+                errorMessage.textContent = `Error accessing media devices: ${err.message}`;
+                
+                if (err.name === 'NotAllowedError') {
+                    errorMessage.textContent += ' - Permission denied. Please allow access to the camera and microphone.';
+                } else if (err.name === 'NotFoundError') {
+                    errorMessage.textContent += ' - No camera/microphone found on this device.';
+                } else if (err.name === 'NotReadableError') {
+                    errorMessage.textContent += ' - Hardware issue. Unable to access the camera/microphone.';
+                } else if (err.name === 'OverconstrainedError') {
+                    errorMessage.textContent += ' - Constraints could not be satisfied by any available devices.';
+                } else if (err.name === 'SecurityError') {
+                    errorMessage.textContent += ' - The page is not served over HTTPS.';
+                } else if (err.name === 'AbortError') {
+                    errorMessage.textContent += ' - Media request was aborted. Please try again.';
+                } else {
+                    errorMessage.textContent += ' - Unknown error occurred.';
+                }
+            }
+        }
+
+        startStream();
+    </script>
+</body>
+</html>

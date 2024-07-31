@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试插件</title>
+
+</head>
+
+<body>
+
+
+<div>
+
+    <button class="btn_video"> 点击录制视频</button>
+    <button class="btn_video2"> 点击录制视频带时长</button>
+    <button class="btn_video3"> 点击录制视频带水印</button>
+
+    <button class="btn_video4"> 上传视频</button>
+    <button class="btn_video5"> 打开本地视频</button>
+
+    <button class="btn_video6"> 拍照支持压缩</button>
+    <button class="btn_video7"> 埋点js</button>
+    <button class="btn_video8"> 埋点js(不携带数据)</button>
+    <button class="btn_video9"> 埋点时长js(start)</button>
+    <button class="btn_video10"> 埋点时长js(end)</button>
+
+    <button class="btn_video11"> 打开网络视频</button>
+    <button class="btn_video12"> 下载和打开网络视频</button>
+
+    <button class="btn_video13"> 拍照片</button>
+
+    <button class="btn_video14"> 上传本地文件</button>
+
+    <button class="btn_video15"> 通用弹窗</button>
+
+    <button class="btn_video16"> selectFile</button>
+    <button class="btn_video17"> 录制音频-开始</button>
+    <button class="btn_video18"> 录制音频-结束</button>
+
+    <button class="btn_video19"> 调用js callAndMessage</button>
+
+    <button class="btn_video20"> 原生js调用摄像头</button>
+
+</div>
+
+
+<script>
+
+        
+        function successCallback(res){
+            alert("info--" + res)
+        }
+        function errorCallback(res){
+
+        }
+        
+        document.addEventListener("deviceready", function () {
+            ZYBContacts.getCurrentUser(successCallback,errorCallback);
+        }, false);
+
+        let btnVideo = document.querySelector('.btn_video')
+        btnVideo.addEventListener('click', function() {
+            ZYBCommon.shootVideo(successCallback,errorCallback)
+        })
+
+        let btnVideo2 = document.querySelector('.btn_video2')
+        btnVideo2.addEventListener('click', function() {
+            var map = new Map()
+            map.set('timeLimit', 10)
+            const json = Object.fromEntries(map)
+            ZYBCommon.shootCustomVideo(json, successCallback,errorCallback)
+        })
+
+        let btnVideo3 = document.querySelector('.btn_video3')
+        btnVideo3.addEventListener('click', function() {
+            var map = new Map()
+            map.set('timeLimit', 10)
+            map.set('isNeedWatermark', 1);
+            map.set('videoWaterStr', '张三 \n2023-8-06 \n行署国际')
+            map.set('saveSystemAblum', 1)
+            map.set('videoWaterColor', '000000')
+            map.set('videoWaterFont', 18)
+            const json = Object.fromEntries(map)
+            ZYBCommon.shootCustomVideo(json, successCallback,errorCallback)
+        })
+
+        let btnVideo4 = document.querySelector('.btn_video4')
+        btnVideo4.addEventListener('click', function() {
+            var map = new Map()
+            map.set('url', 'www.baidu.com')
+            map.set('user/video/12.mp4')
+            map.set('param', '123323')
+            const json = Object.fromEntries(map)
+            ZYBCommon.uploadCustomVideo(json, successCallback,errorCallback)
+        })
+
+        let btnVideo5 = document.querySelector('.btn_video5')
+        btnVideo5.addEventListener('click', function() {
+            var map = new Map()
+            map.set('path', '/storage/emulated/0/Android/data/com.zyb.yxU8/files/Movies/VID_20230809_16142147.mp4')
+            const json = Object.fromEntries(map)
+            ZYBCommon.playCustomVideo(json, successCallback,errorCallback)
+        })
+
+        let btnVideo6 = document.querySelector('.btn_video6')
+        btnVideo6.addEventListener('click', function() {
+            ZYBCommon.shootPicture(1, 1, successCallback,errorCallback)
+        })
+
+        let btnVideo7 = document.querySelector('.btn_video7')
+        btnVideo7.addEventListener('click', function() {
+            var map = new Map()
+            map.set('pointId', 'point_test')
+            map.set('message', 'message_test')
+            const json = Object.fromEntries(map)
+            ZYBCommon.trackWithMessage(json, successCallback,errorCallback)
+        })
+
+        let btnVideo8 = document.querySelector('.btn_video8')
+        btnVideo8.addEventListener('click', function() {
+            var map = new Map()
+            map.set('pointId', 'point_test')
+            map.set('message', '')
+            const json = Object.fromEntries(map)
+            ZYBCommon.trackWithMessage(json, successCallback,errorCallback)
+        })
+
+        let btnVideo9 = document.querySelector('.btn_video9')
+        btnVideo9.addEventListener('click', function() {
+            var map = new Map()
+            map.set('pointId', 'point_test_2')
+            const json = Object.fromEntries(map)
+            ZYBCommon.trackTimerStart(json, successCallback,errorCallback)
+        })
+
+        let btnVideo10 = document.querySelector('.btn_video10')
+        btnVideo10.addEventListener('click', function() {
+            var map = new Map()
+            map.set('pointId', 'point_test_2')
+            const json = Object.fromEntries(map)
+            ZYBCommon.trackTimerEnd(json, successCallback,errorCallback)
+        })
+
+        let btnVideo11 = document.querySelector('.btn_video11')
+        btnVideo11.addEventListener('click', function() {
+        })
+
+
+        let btnVideo12 = document.querySelector('.btn_video12')
+        btnVideo12.addEventListener('click', function() {
+        })
+        let btnVideo13 = document.querySelector('.btn_video13')
+        btnVideo13.addEventListener('click', function() {
+
+            ZYBCommon.takeCamera(successCallback,errorCallback)
+        })
+
+        let btnVideo14 = document.querySelector('.btn_video14')
+        btnVideo14.addEventListener('click', function() {
+            var map = new Map()
+            map.set('appName', '移动OA')
+            map.set('appId', 'zyb_noa')
+            map.set('number', '4')
+            map.set('returnDataType', '1')
+            const json = Object.fromEntries(map)
+            ZYBCommon.selectLocalFile(json,successCallback,errorCallback)
+        })
+
+
+        let btnVideo15 = document.querySelector('.btn_video15')
+        btnVideo15.addEventListener('click', function() {
+            ZYBWebUi.showAlert(1, 2, 3, ['5', '6'], successCallback,errorCallback)
+        })
+
+        let btnVideo16 = document.querySelector('.btn_video16')
+        btnVideo16.addEventListener('click', function() {
+
+            var map = new Map()
+            map.set('appName', '移动OA')
+            map.set('appId', 'zyb_noa')
+            map.set('number', '4')
+            map.set('systemType', '1')
+            map.set('groupIdFromOA', '123456')
+            map.set('type', '0')
+            map.set('compressRation', '0')
+
+            const json = Object.fromEntries(map)
+
+        ZYBCommon.selectFile(json,successCallback,errorCallback)
+        })
+
+        let btnVideo17 = document.querySelector('.btn_video17')
+        btnVideo17.addEventListener('click', function() {
+        ZYBWebUi.showToast('0', '开始录音')
+        ZYBCommon.recordVoice('0', '1800',successCallback,errorCallback)
+        })
+
+        let btnVideo18 = document.querySelector('.btn_video18')
+        btnVideo18.addEventListener('click', function() {
+        ZYBWebUi.showToast('0', '已结束录音')
+        ZYBCommon.recordVoice('1', '1800',successCallback,errorCallback)
+        })
+
+        let btnVideo19 = document.querySelector('.btn_video19')
+        btnVideo19.addEventListener('click', function() {
+            ZYBContacts.callAndMessage('010260', successCallback,errorCallback)
+        })
+
+
+        let btnVideo20 = document.querySelector('.btn_video20')
+        btnVideo20.addEventListener('click', function() {
+            startStream()
+
+        })
+
+
+        async function startStream() {
+            const errorMessage = document.getElementById('errorMessage');
+            try {
+                // 请求视频和音频权限
+                const constraints = { video: true, audio: true };
+                const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                const videoElement = document.getElementById('videoElement');
+                videoElement.srcObject = stream;
+            } catch (err) {
+                // 处理错误并显示调试信息
+                console.error('Error accessing media devices:', err);
+                errorMessage.textContent = `Error accessing media devices: ${err.message}`;
+
+                if (err.name === 'NotAllowedError') {
+                    errorMessage.textContent += ' - Permission denied. Please allow access to the camera and microphone.';
+                } else if (err.name === 'NotFoundError') {
+                    errorMessage.textContent += ' - No camera/microphone found on this device.';
+                } else if (err.name === 'NotReadableError') {
+                    errorMessage.textContent += ' - Hardware issue. Unable to access the camera/microphone.';
+                } else if (err.name === 'OverconstrainedError') {
+                    errorMessage.textContent += ' - Constraints could not be satisfied by any available devices.';
+                } else if (err.name === 'SecurityError') {
+                    errorMessage.textContent += ' - The page is not served over HTTPS.';
+                }
+            }
+        }
+
+
+</script>
+
+</body>
+
+</html>
