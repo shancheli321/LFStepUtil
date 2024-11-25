@@ -48,29 +48,35 @@ public class LFXMStepUtil {
     public static int getAllSteps(Context context, String[] args) {
         ContentResolver contentResolver = context.getContentResolver();
         List<XMStepEntity> steps = new LinkedList<>();
-        Cursor cursor = contentResolver.query(XMStepConstants.CONTENT_URI, XMStepConstants.projection, null, args,
-                XMStepConstants.DEFAULT_SORT_ORDER);
-
-        if (cursor.moveToFirst()) {
-            do {
-                XMStepEntity s = new XMStepEntity(cursor.getInt(0), cursor.getLong(1), cursor.getLong(2),
-                        cursor.getInt(3),
-                        cursor.getInt(4));
-                steps.add(s);
-            } while (cursor.moveToNext());
-        }
-
         int count = 0;
-        for (XMStepEntity tempStepEntity : steps) {
-            Log.d("111---", tempStepEntity.toString());
 
-            if (isToday(tempStepEntity.getmBeginTime()) && isToday(tempStepEntity.getmEndTime())) {
-                if (tempStepEntity.getmMode() == 2 || tempStepEntity.getmMode() == 3) {
-                    count += tempStepEntity.getmSteps();
-                }
+        try {
+            Cursor cursor = contentResolver.query(XMStepConstants.CONTENT_URI, XMStepConstants.projection, null, args,
+                    XMStepConstants.DEFAULT_SORT_ORDER);
+
+            if (cursor.moveToFirst()) {
+                do {
+                    XMStepEntity s = new XMStepEntity(cursor.getInt(0), cursor.getLong(1), cursor.getLong(2),
+                            cursor.getInt(3),
+                            cursor.getInt(4));
+                    steps.add(s);
+                } while (cursor.moveToNext());
             }
 
+            for (XMStepEntity tempStepEntity : steps) {
+                Log.d("111---", tempStepEntity.toString());
+
+                if (isToday(tempStepEntity.getmBeginTime()) && isToday(tempStepEntity.getmEndTime())) {
+                    if (tempStepEntity.getmMode() == 2 || tempStepEntity.getmMode() == 3) {
+                        count += tempStepEntity.getmSteps();
+                    }
+                }
+
+            }
+        } catch (Exception e) {
+            Log.d("111---", e.toString());
         }
+
         return count;
     }
 

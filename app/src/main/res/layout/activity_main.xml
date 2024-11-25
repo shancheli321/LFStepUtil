@@ -16,7 +16,7 @@
         android:gravity="center"
         android:layout_marginTop="100dp"
         android:padding="10dp"
-        android:text="开始获取" />
+        android:text="tv_web" />
 
     <TextView
         android:id="@+id/tv_start"
